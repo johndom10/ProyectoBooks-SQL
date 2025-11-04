@@ -19,3 +19,18 @@ notebook==7.1.2
 💻 Instalación
 
 Para instalar todas las dependencias, ejecuta el siguiente comando en tu terminal o entorno virtual:
+pip install -r requirements.txt
+
+🧠 Dependencias opcionales
+
+Si utilizas bases de datos externas, puedes instalar los siguientes controladores según tu motor SQL:
+
+SQLite
+(Incluido por defecto en Python — no requiere instalación adicional)
+
+PostgreSQL
+pip install psycopg2-binary
+
+MySQL
+pip install mysql-connector-python
+

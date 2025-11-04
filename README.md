@@ -34,7 +34,7 @@ El conjunto de datos proviene de fuentes oficiales de salud pública y fue impor
 
 ## 🧠 Consultas destacadas  
 Algunas de las consultas implementadas:  
-```sql
+sql
 -- Total de casos y muertes por país
 SELECT location, SUM(new_cases) AS total_cases, SUM(new_deaths) AS total_deaths
 FROM CovidDeaths

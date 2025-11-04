@@ -34,7 +34,7 @@ El conjunto de datos proviene de fuentes oficiales de salud pública y fue impor
 
 ## 🧠 Consultas destacadas  
 Algunas de las consultas implementadas:  
-sql
+```sql
 -- Total de casos y muertes por país
 SELECT location, SUM(new_cases) AS total_cases, SUM(new_deaths) AS total_deaths
 FROM CovidDeaths
@@ -46,10 +46,10 @@ SELECT location,
        SUM(new_deaths) * 100.0 / SUM(new_cases) AS death_rate
 FROM CovidDeaths
 GROUP BY location
-ORDER BY death_rate DESC;
+ORDER BY death_rate DESC; ```
 
 ## 🤝 Contribuciones  
-Este proyecto forma parte de mi portafolio de análisis de datos.  
+-- Este proyecto forma parte de mi portafolio de análisis de datos.  
 💬 ¡Tu retroalimentación es bienvenida! Puedes dejar tus comentarios o sugerencias en el repositorio o escribirme en [[LinkedIn](https://www.linkedin.com/in/johndom10) ).
 ---
 

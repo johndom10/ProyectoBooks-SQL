@@ -1,35 +1,36 @@
-# 🦠 Proyecto Coronavirus — SQL Data Analysis
+# 📚 Proyecto Books — SQL Data Analysis
 
 ## 📋 Descripción del proyecto  
-Este proyecto tiene como objetivo **analizar datos relacionados con la pandemia de COVID-19** utilizando consultas SQL para responder preguntas clave sobre contagios, mortalidad y vacunación a nivel mundial.  
+Este proyecto tiene como objetivo analizar una base de datos del sector editorial para **comprender el comportamiento de los libros, autores y editoriales** en función de sus ventas, reseñas y calificaciones.  
 
-El análisis permite **comprender el impacto del virus**, identificar **tendencias regionales** y generar **insights útiles para la toma de decisiones** en políticas de salud pública y gestión de recursos.
+A través de consultas SQL, se extraen insights clave sobre los títulos más populares, las editoriales más activas, las valoraciones promedio y los autores con mejor desempeño.  
+El análisis está orientado a generar una propuesta de valor para un **nuevo producto basado en datos** que optimice las decisiones de marketing y publicación.
 
 ---
 
 ## 🎯 Objetivos principales  
-- Analizar la evolución de casos confirmados, muertes y tasas de vacunación.  
-- Detectar países con **mayor impacto sanitario** y evolución más rápida.  
-- Calcular **porcentajes de mortalidad, recuperación y vacunación** por país o región.  
-- Usar consultas SQL para crear **vistas analíticas y reportes dinámicos**.  
+- Explorar y limpiar los datos de libros, autores y editoriales.  
+- Identificar **tendencias de popularidad y calidad** en las publicaciones.  
+- Calcular métricas clave: número de libros publicados, calificaciones promedio y reseñas por autor/editorial.  
+- Aplicar **consultas SQL avanzadas** (JOINs, agregaciones, subconsultas y CTEs) para estructurar información útil.  
+- Extraer **insights de negocio** que orienten estrategias editoriales.
 
 ---
 
-## 🧩 Base de datos  
-El conjunto de datos proviene de fuentes oficiales de salud pública y fue importado en formato CSV para ser procesado en un entorno SQL.  
-
-**Tablas utilizadas:**
-- `CovidDeaths` — contiene información sobre casos, muertes y población por país.  
-- `CovidVaccinations` — incluye dosis aplicadas y fechas de vacunación.  
+## 🧩 Tablas analizadas  
+- **books** — información general de los libros (título, año, precio, editorial).  
+- **authors** — datos de autores y cantidad de publicaciones.  
+- **publishers** — editoriales y su catálogo de libros.  
+- **ratings** — calificaciones y reseñas de los lectores.  
 
 ---
 
 ## ⚙️ Herramientas y tecnologías  
-- **SQL** (PostgreSQL / MySQL / SQLite)  
-- **Jupyter Notebook**  
-- **Python** (para conexión, visualización y análisis adicional)  
-- **pandas**, **matplotlib**, **seaborn** (en caso de análisis complementario)  
-
+- SQL (PostgreSQL / SQLite)  
+- Jupyter Notebook  
+- Python (pandas, sqlalchemy, ipython-sql)  
+- Visualización complementaria con matplotlib y seaborn
+  
 ---
 
 ## 🤝 Contribuciones  
@@ -41,18 +42,22 @@ El conjunto de datos proviene de fuentes oficiales de salud pública y fue impor
 - **Jonathan Noe Domínguez Hernández**  
 📧 [LinkedIn](https://www.linkedin.com/in/johndom10) | 💻 [GitHub](https://github.com/johndom10) | 📊[https://bit.ly/Proyecto-CallMeMaybe](https://bit.ly/ProyectoBooks-SQL)
 ---
-## 🧠 Consultas destacadas  
-Algunas de las consultas implementadas:  
-```sql
--- Total de casos y muertes por país
-SELECT location, SUM(new_cases) AS total_cases, SUM(new_deaths) AS total_deaths
-FROM CovidDeaths
-GROUP BY location
-ORDER BY total_cases DESC;
 
--- Tasa de mortalidad por país
-SELECT location, 
-       SUM(new_deaths) * 100.0 / SUM(new_cases) AS death_rate
-FROM CovidDeaths
-GROUP BY location
-ORDER BY death_rate DESC; 
+
+## 🧠 Consultas destacadas  
+```sql
+-- Libros con mayor número de reseñas
+SELECT b.title, COUNT(r.review_id) AS total_reviews
+FROM books b
+JOIN ratings r ON b.book_id = r.book_id
+GROUP BY b.title
+ORDER BY total_reviews DESC
+LIMIT 10;
+
+-- Autores con la calificación promedio más alta
+SELECT a.author_name, ROUND(AVG(r.rating), 2) AS avg_rating
+FROM authors a
+JOIN books b ON a.author_id = b.author_id
+JOIN ratings r ON b.book_id = r.book_id
+GROUP BY a.author_name
+ORDER BY avg_rating DESC;

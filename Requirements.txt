@@ -1,0 +1,21 @@
+# ⚙️ Requirements.txt
+
+Este archivo contiene las dependencias necesarias para ejecutar el proyecto **ProyectoCoronavirus-SQL.ipynb** en un entorno de análisis de datos con Python y SQL.
+
+---
+
+## 📦 Dependencias principales
+
+```txt
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.0
+seaborn==0.13.2
+sqlalchemy==2.0.30
+ipython-sql==0.5.0
+jupyter==1.0.0
+notebook==7.1.2
+
+💻 Instalación
+
+Para instalar todas las dependencias, ejecuta el siguiente comando en tu terminal o entorno virtual:

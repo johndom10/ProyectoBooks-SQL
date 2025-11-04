@@ -33,12 +33,12 @@ El conjunto de datos proviene de fuentes oficiales de salud pública y fue impor
 ---
 
 ## 🤝 Contribuciones  
--- Este proyecto forma parte de mi portafolio de análisis de datos.  
+- Este proyecto forma parte de mi portafolio de análisis de datos.  
 💬 ¡Tu retroalimentación es bienvenida! Puedes dejar tus comentarios o sugerencias en el repositorio o escribirme en [[LinkedIn](https://www.linkedin.com/in/johndom10) ).
 ---
 
 ### 👤 Autor
--- **Jonathan Noe Domínguez Hernández**  
+- **Jonathan Noe Domínguez Hernández**  
 📧 [LinkedIn](https://www.linkedin.com/in/johndom10) | 💻 [GitHub](https://github.com/johndom10) | 📊[https://bit.ly/Proyecto-CallMeMaybe](https://bit.ly/ProyectoBooks-SQL)
 ---
 ## 🧠 Consultas destacadas  
